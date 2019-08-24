@@ -1,5 +1,6 @@
 import urllib.request
 from bs4 import BeautifulSoup
+
 class Scraper:
     def __init__(self, site):
         self.site = site
@@ -16,5 +17,5 @@ class Scraper:
             if "html" in url:
                 print("\n" + url)
                 
-news = "http://news.google.com/"
+news = "https://news.google.com/"
 Scraper(news).scrape()
