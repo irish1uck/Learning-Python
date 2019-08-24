@@ -10,7 +10,7 @@ class Scraper:
         html = r.read()
         parser = "html.parser"
         sp = BeautifulSoup(html, parser)
-        for tag in sp.findall("a"):
+        for tag in sp.find_all("a"):
             url = tag.get("href")
             if url is None:
                 continue
