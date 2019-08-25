@@ -1,19 +1,20 @@
 
 
 
-import urllib.request
-from bs4 import BeautifulSoup
+import bs4
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as soup
 
 class Scraper:
     def __init__(self, site):
         self.site = site
     
     def scrape(self):
-        r = urllib.request.urlopen(self.site)
+        r = uReq(self.site)
         html = r.read()
         parser = "html.parser"
-        sp = BeautifulSoup(html, parser)
-        for tag in sp.find_all("a"):
+        sp = soup(html, parser)
+        for tag in sp.findAll("a"):
             url = tag.get("href")
             if url is None:
                 continue
@@ -21,4 +22,6 @@ class Scraper:
                 print("\n" + url)
                 
 news = "https://news.google.com/"
-Scraper(news).scrape()
+scr = Scraper(news)
+final = scr.scrape()
+print(final)
