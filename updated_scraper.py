@@ -29,3 +29,5 @@ for story in head_lines:
       print("Story: " + title)
       print("Link: " + link)
       f.write(title + "," + link + "\n")
+
+f.close()
