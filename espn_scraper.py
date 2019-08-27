@@ -30,4 +30,4 @@ for story in head_lines:
       print("Link: " + link)
       f.write(title + "," + link + "\n")
 
-f.close()
+f.close()      
