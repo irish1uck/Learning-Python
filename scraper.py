@@ -14,14 +14,14 @@ class Scraper:
         html = r.read()
         parser = "html.parser"
         sp = soup(html, parser)
-        for tag in sp.findAll("a"):
-            url = tag.get("href")
+        for tag in sp.findAll("link"):
+            url = tag.get("rel")
             if url is None:
                 continue
             if "html" in url:
                 print("\n" + url)
                 
-news = "https://news.google.com/"
+news = "https://www.cnn.com/"
 scr = Scraper(news)
 final = scr.scrape()
 print(final)
